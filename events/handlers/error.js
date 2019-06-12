@@ -2,7 +2,10 @@
 
 const eventHub = require('../event-hub');
 
-
+/**
+ * Throws the error
+ * @param {error} err 
+ */
 const errorHandler = err => {
   throw new Error(err);
 }

@@ -5,6 +5,10 @@ const util = require('util');
 const fs = require('fs');
 const fsReadFile = util.promisify(fs.readFile);
 
+/**
+ * Read the passed file
+ * @param {string} file 
+ */
 const read = async file => {
   try {
     const buffer = await fsReadFile(file);

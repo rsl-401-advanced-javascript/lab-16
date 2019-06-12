@@ -2,6 +2,10 @@
 
 const eventHub = require('../event-hub');
 
+/**
+ * Convert the buffer into a string and upperCase it
+ * @param {object} data 
+ */
 const upper = data => {
   try {
     let text = data.buffer.toString().toUpperCase();
