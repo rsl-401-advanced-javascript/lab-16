@@ -2,22 +2,13 @@
 
 require('./events/handlers/logger');
 require('./events/handlers/error');
+require('./events/handlers/read');
+require('./events/handlers/write');
+require('./events/handlers/upper');
 const eventHub = require('./events/event-hub');
-const fs = require('fs');
 
 const alterFile = (file) => {
-  fs.readFile(file, (err, data) => {
-    if (err) {
-      eventHub.emit('error', err);
-    }
-    let text = data.toString().toUpperCase();
-    fs.writeFile(file, Buffer.from(text), (err, data) => {
-      if (err) {
-        eventHub.emit('error', err);
-      }
-      eventHub.emit('log', `${file} saved`);
-    });
-  });
+  eventHub.emit('read', file);
 };
 
 let file = process.argv.slice(2).shift();
