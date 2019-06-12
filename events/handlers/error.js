@@ -2,8 +2,6 @@
 
 const eventHub = require('../event-hub');
 
-module.exports = errorHandler = () => {
-  eventHub.on('error', err => {
-    eventHub.emit('log', err);
-  });
-};
+eventHub.on('error', errorHandler);
+
+module.exports = errorHandler = err => eventHub.emit('log', err);
