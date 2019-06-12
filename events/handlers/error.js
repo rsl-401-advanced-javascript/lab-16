@@ -6,4 +6,4 @@ module.exports = errorHandler = () => {
   eventHub.on('error', err => {
     eventHub.emit('log', err);
   });
-}
+};
