@@ -2,6 +2,8 @@
 
 const eventHub = require('../event-hub');
 
-eventHub.on('log', logger);
 
-module.exports = logger = message => console.log(message);
+const logHandler = message => console.log(message);
+
+eventHub.on('log', logHandler);
+module.exports = logHandler;
